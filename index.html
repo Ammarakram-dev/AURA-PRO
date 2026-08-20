@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="AURA Pro — Ammar's Universal Responsive Assistant"
+    >
+
+    <meta
+        name="theme-color"
+        content="#05070d"
+    >
+
+    <title>AURA PRO — AI Command Center</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     BACKGROUND EFFECTS
+===================================================== -->
+
+<div class="background-system">
+    <div class="grid-background"></div>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
+    <div class="scanline"></div>
+</div>
+
+<!-- =====================================================
+     MOBILE OVERLAY
+===================================================== -->
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="brand">
+
+        <div class="brand-symbol">
+            <span>A</span>
+            <i class="fa-solid fa-circle-nodes"></i>
+        </div>
+
+        <div class="brand-text">
+            <strong>AURA</strong>
+            <small>PRO SYSTEM</small>
+        </div>
+
+    </div>
+
+    <div class="system-status-mini">
+        <span class="status-dot"></span>
+        <span>SYSTEM ONLINE</span>
+    </div>
+
+    <nav class="navigation">
+
+        <p class="nav-title">COMMAND</p>
+
+        <button
+            class="nav-item active"
+            data-page="dashboard"
+        >
+            <i class="fa-solid fa-gauge-high"></i>
+            <span>Dashboard</span>
+        </button>
+
+        <button
+            class="nav-item"
+            data-page="chat"
+        >
+            <i class="fa-solid fa-comments"></i>
+            <span>Conversation</span>
+        </button>
+
+        <button
+            class="nav-item"
+            data-page="commands"
+        >
+            <i class="fa-solid fa-terminal"></i>
+            <span>Command Engine</span>
+        </button>
+
+        <p class="nav-title">PRODUCTIVITY</p>
+
+        <button
+            class="nav-item"
+            data-page="tasks"
+        >
+            <i class="fa-solid fa-list-check"></i>
+            <span>Tasks</span>
+            <b id="taskBadge">0</b>
+        </button>
+
+        <button
+            class="nav-item"
+            data-page="notes"
+        >
+            <i class="fa-solid fa-note-sticky"></i>
+            <span>Notes</span>
+        </button>
+
+        <button
+            class="nav-item"
+            data-page="activity"
+        >
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Analytics</span>
+        </button>
+
+        <p class="nav-title">INTELLIGENCE</p>
+
+        <button
+            class="nav-item"
+            data-page="memory"
+        >
+            <i class="fa-solid fa-brain"></i>
+            <span>AURA Memory</span>
+        </button>
+
+        <button
+            class="nav-item"
+            data-page="settings"
+        >
+            <i class="fa-solid fa-sliders"></i>
+            <span>Settings</span>
+        </button>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+        <div class="mini-system-card">
+            <div class="mini-core">
+                <i class="fa-solid fa-microchip"></i>
+            </div>
+
+            <div>
+                <strong>AURA CORE</strong>
+                <span>Ready for commands</span>
+            </div>
+        </div>
+
+        <div class="creator-label">
+            <span>DESIGNED & BUILT BY</span>
+            <strong>AMMAR AKRAM</strong>
+        </div>
+
+    </div>
+
+</aside>
+
+<!-- =====================================================
+     MAIN APPLICATION
+===================================================== -->
+
+<main class="main">
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <div class="topbar-left">
+
+            <button
+                class="icon-button mobile-only"
+                id="mobileMenu"
+                title="Open menu"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="breadcrumb">
+
+                <span>AURA PRO</span>
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+                <strong id="currentSection">
+                    COMMAND CENTER
+                </strong>
+
+            </div>
+
+        </div>
+
+        <div class="topbar-actions">
+
+            <div class="top-clock">
+                <i class="fa-regular fa-clock"></i>
+                <span id="clock">00:00:00</span>
+            </div>
+
+            <button
+                class="icon-button"
+                id="searchButton"
+                title="Search web"
+            >
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <button
+                class="icon-button"
+                id="notificationButton"
+                title="Notifications"
+            >
+                <i class="fa-regular fa-bell"></i>
+                <span class="notification-dot"></span>
+            </button>
+
+            <button
+                class="icon-button"
+                id="fullscreenButton"
+                title="Fullscreen"
+            >
+                <i class="fa-solid fa-expand"></i>
+            </button>
+
+            <div class="profile-chip">
+                <div class="profile-avatar">AA</div>
+
+                <div>
+                    <strong>AMMAR</strong>
+                    <span>ADMIN</span>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- =================================================
+         PAGE: DASHBOARD
+    ================================================== -->
+
+    <section
+        class="page active"
+        id="dashboard"
+    >
+
+        <div class="page-heading">
+
+            <div>
+                <span class="eyebrow">
+                    <i class="fa-solid fa-sparkles"></i>
+                    INTELLIGENT COMMAND CENTER
+                </span>
+
+                <h1>
+                    Welcome back,
+                    <span>Ammar.</span>
+                </h1>
+
+                <p id="currentDate">
+                    Loading system date...
+                </p>
+            </div>
+
+            <div class="system-pill">
+                <span class="status-dot"></span>
+                ALL SYSTEMS OPERATIONAL
+            </div>
+
+        </div>
+
+        <!-- HERO -->
+
+        <div class="hero-grid">
+
+            <div class="glass-card aura-card">
+
+                <div class="card-topline">
+                    <span>CORE STATUS</span>
+
+                    <span class="live-indicator">
+                        <i class="fa-solid fa-circle"></i>
+                        LIVE
+                    </span>
+                </div>
+
+                <div class="aura-core-wrap">
+
+                    <div class="core-rings ring-one"></div>
+                    <div class="core-rings ring-two"></div>
+                    <div class="core-rings ring-three"></div>
+
+                    <div
+                        class="core"
+                        id="auraCore"
+                    >
+                        <div class="core-inner">
+
+                            <div class="core-logo">
+                                A
+                            </div>
+
+                            <div
+                                class="core-state"
+                                id="coreState"
+                            >
+                                READY
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="orbit orbit-one">
+                        <span></span>
+                    </div>
+
+                    <div class="orbit orbit-two">
+                        <span></span>
+                    </div>
+
+                </div>
+
+                <div class="core-info">
+
+                    <h2>AURA PRO</h2>
+
+                    <p id="coreMessage">
+                        Awaiting your next command
+                    </p>
+
+                    <div class="core-tags">
+                        <span>AI ENGINE</span>
+                        <span>VOICE</span>
+                        <span>LOCAL MEMORY</span>
+                    </div>
+
+                </div>
+
+                <button
+                    class="primary-button voice-main-button"
+                    id="voiceButton"
+                >
+                    <i class="fa-solid fa-microphone"></i>
+                    <span>Talk to AURA</span>
+                </button>
+
+            </div>
+
+            <!-- QUICK COMMANDS -->
+
+            <div class="glass-card quick-card">
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="card-label">QUICK ACTIONS</span>
+                        <h2>Command shortcuts</h2>
+                    </div>
+
+                    <i class="fa-solid fa-bolt section-icon"></i>
+
+                </div>
+
+                <div class="quick-grid">
+
+                    <button
+                        class="quick-command"
+                        data-command="what time is it"
+                    >
+                        <i class="fa-regular fa-clock"></i>
+                        <span>Time</span>
+                    </button>
+
+                    <button
+                        class="quick-command"
+                        data-command="show tasks"
+                    >
+                        <i class="fa-solid fa-list-check"></i>
+                        <span>Tasks</span>
+                    </button>
+
+                    <button
+                        class="quick-command"
+                        data-command="productivity report"
+                    >
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span>Productivity</span>
+                    </button>
+
+                    <button
+                        class="quick-command"
+                        data-command="system status"
+                    >
+                        <i class="fa-solid fa-server"></i>
+                        <span>Status</span>
+                    </button>
+
+                    <button
+                        class="quick-command"
+                        data-command="start 25 minute timer"
+                    >
+                        <i class="fa-solid fa-stopwatch"></i>
+                        <span>Timer</span>
+                    </button>
+
+                    <button
+                        class="quick-command"
+                        data-command="focus mode"
+                    >
+                        <i class="fa-solid fa-crosshairs"></i>
+                        <span>Focus</span>
+                    </button>
+
+                    <button
+                        class="quick-command"
+                        data-command="open github"
+                    >
+                        <i class="fa-brands fa-github"></i>
+                        <span>GitHub</span>
+                    </button>
+
+                    <button
+                        class="quick-command"
+                        data-command="help"
+                    >
+                        <i class="fa-solid fa-circle-question"></i>
+                        <span>Help</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- STATISTICS -->
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+
+                <div>
+                    <span>COMMANDS</span>
+                    <strong id="commandCount">0</strong>
+                    <small>Total processed</small>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+
+                <div>
+                    <span>PENDING TASKS</span>
+                    <strong id="taskCount">0</strong>
+                    <small>Need attention</small>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-check-double"></i>
+                </div>
+
+                <div>
+                    <span>COMPLETED</span>
+                    <strong id="completedCount">0</strong>
+                    <small>Tasks completed</small>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
+
+                <div>
+                    <span>VOICE</span>
+                    <strong id="voiceCount">0</strong>
+                    <small>Voice sessions</small>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- DASHBOARD LOWER GRID -->
+
+        <div class="dashboard-lower">
+
+            <div class="glass-card activity-card">
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="card-label">
+                            LIVE LOG
+                        </span>
+
+                        <h2>Recent activity</h2>
+                    </div>
+
+                    <button
+                        class="text-button"
+                        data-page="activity"
+                    >
+                        View all
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+                <div
+                    class="activity-list"
+                    id="dashboardActivity"
+                ></div>
+
+            </div>
+
+            <div class="glass-card progress-card">
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="card-label">
+                            PERFORMANCE
+                        </span>
+
+                        <h2>Productivity</h2>
+                    </div>
+
+                    <i class="fa-solid fa-chart-line section-icon"></i>
+
+                </div>
+
+                <div class="progress-display">
+
+                    <div class="progress-circle">
+                        <div>
+                            <strong id="progressPercent">0%</strong>
+                            <span>COMPLETE</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-copy">
+                        <strong>Task completion</strong>
+                        <p>
+                            Keep building momentum.
+                            AURA tracks your progress
+                            automatically.
+                        </p>
+
+                        <div class="progress-meta">
+                            <span>
+                                <i class="fa-solid fa-circle"></i>
+                                Completed
+                            </span>
+
+                            <span>
+                                <i class="fa-regular fa-circle"></i>
+                                Remaining
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =================================================
+         PAGE: CHAT
+    ================================================== -->
+
+    <section
+        class="page"
+        id="chat"
+    >
+
+        <div class="page-heading">
+
+            <div>
+                <span class="eyebrow">
+                    <i class="fa-solid fa-comments"></i>
+                    AURA CONVERSATION
+                </span>
+
+                <h1>
+                    Talk to your
+                    <span>assistant.</span>
+                </h1>
+
+                <p>
+                    Ask AURA to perform commands,
+                    manage your productivity,
+                    or answer simple questions.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="chat-layout">
+
+            <div class="glass-card chat-panel">
+
+                <div class="chat-header">
+
+                    <div class="aura-avatar-small">
+                        A
+                    </div>
+
+                    <div>
+                        <strong>AURA</strong>
+                        <span>
+                            <i class="fa-solid fa-circle"></i>
+                            Online
+                        </span>
+                    </div>
+
+                    <button
+                        class="icon-button"
+                        id="clearChatButton"
+                        title="Clear conversation"
+                    >
+                        <i class="fa-solid fa-broom"></i>
+                    </button>
+
+                </div>
+
+                <div
+                    class="messages"
+                    id="messages"
+                >
+
+                    <div class="message assistant">
+
+                        <div class="message-avatar">
+                            A
+                        </div>
+
+                        <div class="message-content">
+
+                            <span class="message-name">
+                                AURA
+                            </span>
+
+                            <div class="bubble">
+                                Hello Ammar. AURA is online and ready. What would you like me to do?
+                            </div>
+
+                            <time>NOW</time>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="chat-input-area">
+
+                    <button
+                        class="chat-tool"
+                        id="chatVoiceButton"
+                        title="Voice input"
+                    >
+                        <i class="fa-solid fa-microphone"></i>
+                    </button>
+
+                    <input
+                        type="text"
+                        id="chatInput"
+                        placeholder="Talk to AURA..."
+                        autocomplete="off"
+                    >
+
+                    <button
+                        class="send-button"
+                        id="sendButton"
+                        title="Send"
+                    >
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+
+                </div>
+
+                <div class="chat-suggestions">
+
+                    <button data-chat="What can you do?">
+                        What can you do?
+                    </button>
+
+                    <button data-chat="Show my tasks">
+                        Show my tasks
+                    </button>
+
+                    <button data-chat="Give me a system report">
+                        System report
+                    </button>
+
+                    <button data-chat="Start a 10 minute timer">
+                        Start timer
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="glass-card chat-help">
+
+                <span class="card-label">
+                    COMMAND GUIDE
+                </span>
+
+                <h2>Try saying...</h2>
+
+                <div class="command-example">
+                    <i class="fa-solid fa-terminal"></i>
+                    <span>"Create task study Python"</span>
+                </div>
+
+                <div class="command-example">
+                    <i class="fa-solid fa-brain"></i>
+                    <span>"Remember that my project is AURA"</span>
+                </div>
+
+                <div class="command-example">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>"Search for AI trends"</span>
+                </div>
+
+                <div class="command-example">
+                    <i class="fa-solid fa-calculator"></i>
+                    <span>"Calculate 250 * 4"</span>
+                </div>
+
+                <div class="command-example">
+                    <i class="fa-solid fa-globe"></i>
+                    <span>"Open GitHub"</span>
+                </div>
+
+                <div class="command-example">
+                    <i class="fa-solid fa-crosshairs"></i>
+                    <span>"Enable focus mode"</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =================================================
+         PAGE: COMMANDS
+    ================================================== -->
+
+    <section
+        class="page"
+        id="commands"
+    >
+
+        <div class="page-heading">
+
+            <div>
+                <span class="eyebrow">
+                    <i class="fa-solid fa-terminal"></i>
+                    COMMAND ENGINE
+                </span>
+
+                <h1>
+                    Direct system
+                    <span>control.</span>
+                </h1>
+
+                <p>
+                    Execute AURA commands directly.
+                    Press Ctrl + K to focus the console.
+                </p>
+            </div>
+
+            <div class="shortcut">
+                <kbd>CTRL</kbd>
+                <span>+</span>
+                <kbd>K</kbd>
+            </div>
+
+        </div>
+
+        <div class="glass-card terminal-card">
+
+            <div class="terminal-top">
+
+                <div class="terminal-lights">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <span>AURA_COMMAND_TERMINAL</span>
+
+                <div class="terminal-status">
+                    <i class="fa-solid fa-circle"></i>
+                    ONLINE
+                </div>
+
+            </div>
+
+            <div
+                class="console-output"
+                id="consoleOutput"
+            >
+
+                <div class="console-line system-line">
+                    <span>SYSTEM://</span>
+                    <p>AURA command engine initialized.</p>
+                </div>
+
+                <div class="console-line system-line">
+                    <span>SYSTEM://</span>
+                    <p>Awaiting command input...</p>
+                </div>
+
+            </div>
+
+            <div class="console-input">
+
+                <span class="console-prompt">
+                    AURA://
+                </span>
+
+                <input
+                    type="text"
+                    id="commandInput"
+                    placeholder="Enter command..."
+                    autocomplete="off"
+                >
+
+                <button
+                    id="executeCommand"
+                    class="primary-button"
+                >
+                    <i class="fa-solid fa-play"></i>
+                    Execute
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="command-grid">
+
+            <div class="command-info">
+                <i class="fa-solid fa-clock"></i>
+                <strong>Time</strong>
+                <span>What time is it?</span>
+            </div>
+
+            <div class="command-info">
+                <i class="fa-solid fa-list-check"></i>
+                <strong>Tasks</strong>
+                <span>Create task finish project</span>
+            </div>
+
+            <div class="command-info">
+                <i class="fa-solid fa-note-sticky"></i>
+                <strong>Notes</strong>
+                <span>Note project deadline</span>
+            </div>
+
+            <div class="command-info">
+                <i class="fa-solid fa-brain"></i>
+                <strong>Memory</strong>
+                <span>Remember that...</span>
+            </div>
+
+            <div class="command-info">
+                <i class="fa-solid fa-globe"></i>
+                <strong>Web</strong>
+                <span>Search for something</span>
+            </div>
+
+            <div class="command-info">
+                <i class="fa-solid fa-calculator"></i>
+                <strong>Math</strong>
+                <span>Calculate 20 + 30</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =================================================
+         PAGE: TASKS
+    ================================================== -->
+
+    <section
+        class="page"
+        id="tasks"
+    >
+
+        <div class="page-heading">
+
+            <div>
+                <span class="eyebrow">
+                    <i class="fa-solid fa-list-check"></i>
+                    PRODUCTIVITY
+                </span>
+
+                <h1>
+                    Your task
+                    <span>system.</span>
+                </h1>
+
+                <p>
+                    Keep your work organized and
+                    let AURA track your progress.
+                </p>
+            </div>
+
+            <button
+                class="primary-button"
+                id="addTaskButton"
+            >
+                <i class="fa-solid fa-plus"></i>
+                Add Task
+            </button>
+
+        </div>
+
+        <div class="glass-card task-overview">
+
+            <div>
+                <span class="card-label">
+                    ACTIVE TASKS
+                </span>
+
+                <strong id="taskSummary">0</strong>
+
+                <p>
+                    Pending tasks
+                </p>
+            </div>
+
+            <div class="task-overview-icon">
+                <i class="fa-solid fa-list-check"></i>
+            </div>
+
+        </div>
+
+        <div
+            class="tasks-list"
+            id="tasksList"
+        ></div>
+
+    </section>
+
+    <!-- =================================================
+         PAGE: NOTES
+    ================================================== -->
+
+    <section
+        class="page"
+        id="notes"
+    >
+
+        <div class="page-heading">
+
+            <div>
+                <span class="eyebrow">
+                    <i class="fa-solid fa-note-sticky"></i>
+                    AURA MEMORY
+                </span>
+
+                <h1>
+                    Capture your
+                    <span>ideas.</span>
+                </h1>
+
+                <p>
+                    Save important information
+                    locally inside your AURA system.
+                </p>
+            </div>
+
+            <button
+                class="primary-button"
+                id="addNoteButton"
+            >
+                <i class="fa-solid fa-plus"></i>
+                New Note
+            </button>
+
+        </div>
+
+        <div
+            class="notes-grid"
+            id="notesGrid"
+        ></div>
+
+    </section>
+
+    <!-- =================================================
+         PAGE: ACTIVITY
+    ================================================== -->
+
+    <section
+        class="page"
+        id="activity"
+    >
+
+        <div class="page-heading">
+
+            <div>
+                <span class="eyebrow">
+                    <i class="fa-solid fa-chart-line"></i>
+                    ANALYTICS
+                </span>
+
+                <h1>
+                    System
+                    <span>activity.</span>
+                </h1>
+
+                <p>
+                    Monitor everything AURA has
+                    processed during your sessions.
+                </p>
+            </div>
+
+            <button
+                class="secondary-button"
+                id="clearActivity"
+            >
+                <i class="fa-solid fa-trash"></i>
+                Clear Activity
+            </button>
+
+        </div>
+
+        <div class="glass-card full-activity-card">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="card-label">
+                        EVENT STREAM
+                    </span>
+
+                    <h2>Activity history</h2>
+                </div>
+
+                <span class="live-indicator">
+                    <i class="fa-solid fa-circle"></i>
+                    LIVE LOG
+                </span>
+
+            </div>
+
+            <div
+                class="activity-list"
+                id="fullActivityList"
+            ></div>
+
+        </div>
+
+    </section>
+
+    <!-- =================================================
+         PAGE: MEMORY
+    ================================================== -->
+
+    <section
+        class="page"
+        id="memory"
+    >
+
+        <div class="page-heading">
+
+            <div>
+                <span class="eyebrow">
+                    <i class="fa-solid fa-brain"></i>
+                    INTELLIGENCE
+                </span>
+
+                <h1>
+                    AURA
+                    <span>memory.</span>
+                </h1>
+
+                <p>
+                    Your local productivity memory
+                    and stored information.
+                </p>
+            </div>
+
+            <button
+                class="danger-button"
+                id="resetMemory"
+            >
+                <i class="fa-solid fa-rotate-left"></i>
+                Reset Memory
+            </button>
+
+        </div>
+
+        <div class="memory-grid">
+
+            <div class="glass-card memory-main">
+
+                <div class="brain-visual">
+
+                    <div class="brain-ring ring-a"></div>
+                    <div class="brain-ring ring-b"></div>
+
+                    <div class="brain-core">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+
+                </div>
+
+                <div class="memory-meter">
+
+                    <div class="meter-heading">
+                        <span>LOCAL MEMORY USAGE</span>
+                        <strong id="memoryPercent">1%</strong>
+                    </div>
+
+                    <div class="meter">
+                        <div
+                            id="memoryBar"
+                            class="meter-fill"
+                        ></div>
+                    </div>
+
+                    <p>
+                        AURA stores tasks, notes,
+                        activity and memory records
+                        locally in your browser.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="memory-stats">
+
+                <div class="memory-stat">
+                    <i class="fa-solid fa-database"></i>
+                    <span>Stored Records</span>
+                    <strong id="memoryItems">0</strong>
+                </div>
+
+                <div class="memory-stat">
+                    <i class="fa-solid fa-note-sticky"></i>
+                    <span>Notes</span>
+                    <strong id="memoryNotes">0</strong>
+                </div>
+
+                <div class="memory-stat">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span>Tasks</span>
+                    <strong id="memoryTasks">0</strong>
+                </div>
+
+                <div class="memory-stat">
+                    <i class="fa-solid fa-brain"></i>
+                    <span>Memory Items</span>
+                    <strong id="memoryRecords">0</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="glass-card memory-list-card">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="card-label">
+                        RECENT MEMORY
+                    </span>
+
+                    <h2>Remembered information</h2>
+                </div>
+
+            </div>
+
+            <div
+                class="memory-list"
+                id="memoryList"
+            ></div>
+
+        </div>
+
+    </section>
+
+    <!-- =================================================
+         PAGE: SETTINGS
+    ================================================== -->
+
+    <section
+        class="page"
+        id="settings"
+    >
+
+        <div class="page-heading">
+
+            <div>
+                <span class="eyebrow">
+                    <i class="fa-solid fa-sliders"></i>
+                    CONFIGURATION
+                </span>
+
+                <h1>
+                    Tune your
+                    <span>AURA.</span>
+                </h1>
+
+                <p>
+                    Customize how the assistant
+                    behaves and looks.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="settings-grid">
+
+            <div class="glass-card settings-card">
+
+                <div class="settings-card-header">
+                    <i class="fa-solid fa-volume-high"></i>
+
+                    <div>
+                        <strong>Voice Responses</strong>
+                        <span>
+                            Allow AURA to speak responses.
+                        </span>
+                    </div>
+
+                    <label class="switch">
+                        <input
+                            type="checkbox"
+                            id="voiceSetting"
+                        >
+                        <span></span>
+                    </label>
+                </div>
+
+                <div class="settings-card-header">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                    <div>
+                        <strong>Animations</strong>
+                        <span>
+                            Enable futuristic interface animations.
+                        </span>
+                    </div>
+
+                    <label class="switch">
+                        <input
+                            type="checkbox"
+                            id="animationSetting"
+                        >
+                        <span></span>
+                    </label>
+                </div>
+
+                <div class="settings-card-header">
+                    <i class="fa-solid fa-bell"></i>
+
+                    <div>
+                        <strong>Notifications</strong>
+                        <span>
+                            Show AURA system notifications.
+                        </span>
+                    </div>
+
+                    <label class="switch">
+                        <input
+                            type="checkbox"
+                            id="notificationSetting"
+                        >
+                        <span></span>
+                    </label>
+                </div>
+
+                <div class="settings-card-header">
+                    <i class="fa-solid fa-crosshairs"></i>
+
+                    <div>
+                        <strong>Focus Mode</strong>
+                        <span>
+                            Reduce distractions while working.
+                        </span>
+                    </div>
+
+                    <label class="switch">
+                        <input
+                            type="checkbox"
+                            id="focusSetting"
+                        >
+                        <span></span>
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="glass-card settings-card">
+
+                <div class="settings-section-title">
+                    <i class="fa-solid fa-palette"></i>
+                    <span>Appearance</span>
+                </div>
+
+                <div class="theme-buttons">
+
+                    <button
+                        class="theme-button active"
+                        data-theme="dark"
+                    >
+                        <i class="fa-solid fa-moon"></i>
+                        Dark
+                    </button>
+
+                    <button
+                        class="theme-button"
+                        data-theme="light"
+                    >
+                        <i class="fa-solid fa-sun"></i>
+                        Light
+                    </button>
+
+                </div>
+
+                <div class="settings-section-title">
+                    <i class="fa-solid fa-keyboard"></i>
+                    <span>Shortcuts</span>
+                </div>
+
+                <div class="shortcut-row">
+                    <span>Command console</span>
+                    <div>
+                        <kbd>CTRL</kbd>
+                        <kbd>K</kbd>
+                    </div>
+                </div>
+
+                <div class="shortcut-row">
+                    <span>Close dialogs</span>
+                    <kbd>ESC</kbd>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- =====================================================
+     TIMER WIDGET
+===================================================== -->
+
+<div
+    class="timer-widget"
+    id="timerWidget"
+>
+
+    <div class="timer-widget-header">
+        <span>
+            <i class="fa-solid fa-stopwatch"></i>
+            AURA TIMER
+        </span>
+
+        <button id="closeTimer">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <div
+        class="timer-display"
+        id="timerDisplay"
+    >
+        00:00
+    </div>
+
+    <div class="timer-controls">
+
+        <button id="pauseTimer">
+            <i class="fa-solid fa-pause"></i>
+        </button>
+
+        <button id="resetTimer">
+            <i class="fa-solid fa-rotate-left"></i>
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     TASK MODAL
+===================================================== -->
+
+<div
+    class="modal-overlay"
+    id="taskModal"
+>
+
+    <div class="modal">
+
+        <button
+            class="modal-close"
+            data-close-modal="taskModal"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <span class="eyebrow">
+            <i class="fa-solid fa-list-check"></i>
+            NEW TASK
+        </span>
+
+        <h2>Create a task</h2>
+
+        <p>
+            Tell AURA what you need to accomplish.
+        </p>
+
+        <label>
+            Task title
+        </label>
+
+        <input
+            type="text"
+            id="taskTitle"
+            placeholder="e.g. Finish portfolio website"
+        >
+
+        <button
+            class="primary-button full-button"
+            id="saveTask"
+        >
+            <i class="fa-solid fa-check"></i>
+            Create Task
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     NOTE MODAL
+===================================================== -->
+
+<div
+    class="modal-overlay"
+    id="noteModal"
+>
+
+    <div class="modal">
+
+        <button
+            class="modal-close"
+            data-close-modal="noteModal"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <span class="eyebrow">
+            <i class="fa-solid fa-note-sticky"></i>
+            NEW NOTE
+        </span>
+
+        <h2>Save a note</h2>
+
+        <p>
+            Store an idea or important information.
+        </p>
+
+        <label>
+            Note title
+        </label>
+
+        <input
+            type="text"
+            id="noteTitle"
+            placeholder="Note title"
+        >
+
+        <label>
+            Note content
+        </label>
+
+        <textarea
+            id="noteContent"
+            placeholder="Write your note..."
+            rows="5"
+        ></textarea>
+
+        <button
+            class="primary-button full-button"
+            id="saveNote"
+        >
+            <i class="fa-solid fa-floppy-disk"></i>
+            Save Note
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+    class="toast-container"
+    id="toastContainer"
+></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
